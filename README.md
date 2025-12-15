@@ -3,6 +3,9 @@
 
 This project is an online data conversion tool designed to provide precise binary, decimal, and hexadecimal conversions for data types used on Huawei Ascend platforms and industry-standard formatsincluding HIF8, FLOAT8_E4M3, and FLOAT4_E2M1while supporting detailed bit-level visualization.
 
+## Try It Live
+[DataConverter](https://libohao666.github.io/DataConverter/)
+
 ### Currently Supported Data Types  
 
 - INT64 / FLOAT64  
