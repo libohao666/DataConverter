@@ -14,3 +14,7 @@ This project is an online data conversion tool designed to provide precise binar
 - FLOAT8_E4M3 / FLOAT8_E5M2 / INT8 / HIF8  
 - FLOAT6_E2M3 / FLOAT6_E3M2  
 - INT4 / FLOAT4_E2M1 / FLOAT4_E1M2
+
+
+Acknowledgments
+The UI design of this project references the IEEE-754 Floating Point Converter.
