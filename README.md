@@ -16,5 +16,5 @@ This project is an online data conversion tool designed to provide precise binar
 - INT4 / FLOAT4_E2M1 / FLOAT4_E1M2
 
 
-Acknowledgments
-The UI design of this project references the IEEE-754 Floating Point Converter.
+# Acknowledgments
+The UI design of this project references the [IEEE-754 Floating Point Converter](https://www.h-schmidt.net/FloatConverter/IEEE754.html).
