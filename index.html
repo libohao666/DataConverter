@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataConverter</title>
+    <link rel="icon" type="image/x-icon" href="https://www.hiascend.com/_static3/favicon.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        /* Navigation bar styles */
+        .navbar {
+            background-color: #4CAF50;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card-content {
+            margin-bottom: 15px;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        .card-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .spec-item {
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .converter-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .converter-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            line-height: 1.5;
+        }
+
+        .converter-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .converter-table th, .converter-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .converter-table th {
+            background-color: #f2f2f2;
+        }
+
+        .converter-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .converter-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .converter-inputs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .converter-input {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 15px;
+        }
+
+        .converter-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .converter-buttons button {
+            margin: 0 5px;
+        }
+
+        /* New styles */
+        .quick-jump {
+            margin: 20px 0;
+        }
+
+        .quick-jump select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 300px;
+        }
+
+        .recently-used {
+            margin: 20px 0;
+        }
+
+        .recently-used h3 {
+            margin-top: 0;
+        }
+
+        .recently-used ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .recently-used li {
+            margin-bottom: 5px;
+        }
+
+        .recently-used a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .recently-used a:hover {
+            color: #4CAF50;
+        }
+
+        /* Ad container */
+        #colorAd{
+            position:fixed;
+            width:220px;
+            padding:12px 12px 8px 12px;
+            border-radius:6px;
+            cursor:pointer;
+            z-index:9999;
+            box-shadow:0 0 8px rgba(0,0,0,.2);
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            color:#333;
+            background:#fff;
+            animation:rainbowBorder 2s linear infinite;
+        }
+        @keyframes rainbowBorder{
+            0%   {border:3px solid #ff0000;}
+            16%  {border:3px solid #ff9900;}
+            33%  {border:3px solid #ffff00;}
+            50%  {border:3px solid #33cc33;}
+            66%  {border:3px solid #0099ff;}
+            83%  {border:3px solid #9900ff;}
+            100% {border:3px solid #ff0000;}
+        }
+
+        /* Close button */
+        #colorAd .close{
+            position:absolute;
+            top:2px;
+            right:6px;
+            font-size:16px;
+            font-weight:bold;
+            color:#666;
+            cursor:pointer;
+            user-select:none;
+        }
+        #colorAd .close:hover{color:#f00;}
+
+        /* Content area */
+        #colorAd .inner{
+            text-align:center;
+            margin-top:8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://gitee.com/libohao3/data-converter">Project</a>
+        <a href="#" id="nav-base" class="active">Data Converter</a>
+    </div>
+
+    <div id="base-converter" class="container">
+        <div class="quick-jump">
+            <label for="jump-select">Quick jump</label>
+            <select id="jump-select">
+                <!-- Options will be dynamically generated by JavaScript -->
+            </select>
+        </div>
+        <!-- Cards will be dynamically generated by JavaScript -->
+    </div>
+
+    <footer>
+        <p>&copy; Unauthorized reproduction or use of any code is prohibited.</p>
+    </footer>
+
+    <script src="script/data.js"></script>
+    <script src="script/float.js"></script>
+    <script src="script/index.js"></script>
+    <script>
+        // Navigation switch functionality
+        document.getElementById('nav-base').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('base-converter').style.display = 'block';
+            document.getElementById('file-converter').style.display = 'none';
+            document.getElementById('nav-base').classList.add('active');
+            document.getElementById('nav-file').classList.remove('active');
+        });
+
+        document.getElementById('nav-file').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('base-converter').style.display = 'none';
+            document.getElementById('file-converter').style.display = 'block';
+            document.getElementById('nav-file').classList.add('active');
+            document.getElementById('nav-base').classList.remove('active');
+        });
+    </script>
+
+    <script>
+        /* === Floating Ad Control === */
+        const ad = document.getElementById('colorAd');
+        let x = 0, y = 0;           // Current coordinates
+        let dx = 2, dy = 2;         // Pixels per frame
+        let paused = false;         // Mouse hover flag
+
+        const w = ad.offsetWidth, h = ad.offsetHeight;
+
+        function move(){
+            if(paused) return;
+            const maxX = window.innerWidth  - w;
+            const maxY = window.innerHeight - h;
+
+            x += dx;
+            y += dy;
+
+            if(x <= 0 || x >= maxX) dx = -dx;
+            if(y <= 0 || y >= maxY) dy = -dy;
+
+            ad.style.left = x + 'px';
+            ad.style.top  = y + 'px';
+
+            requestAnimationFrame(move);
+        }
+
+        /* Mouse events: pause on hover, resume on leave */
+        ad.addEventListener('mouseenter', () => paused = true);
+        ad.addEventListener('mouseleave', () => { paused = false; requestAnimationFrame(move); });
+
+        /* Close ad */
+        function closeAd(e){
+            e.stopPropagation();   // Prevent ad click from triggering navigation
+            ad.remove();
+        }
+
+        /* Start animation */
+        move();
+    </script>
+</body>
+</html>
