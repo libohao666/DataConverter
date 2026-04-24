@@ -172,7 +172,7 @@ const cardData = [
             { label: "Exponent width", value: "2" },
             { label: "Mantissa width", value: "3" }
         ],
-        converterId: "jsconverter_float6_e3m2",
+        converterId: "jsconverter_float6_e2m3",
         converterType: "float",
         signBits: 1,
         exponentBits: 2,
