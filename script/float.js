@@ -774,13 +774,29 @@ class AscendConverter {
                 return s + code + m_str;
             } else {
                 // Handle DML = false case
+                if (e_length === 0) {
+                    // D=0, DML=false: No exponent bits, formula: (-1)^s * 2^0 * (1 + M)
+                    const m_plus1 = v_abs;
+                    if (m_plus1 >= 1 && m_plus1 < 2) {
+                        const m_value = m_plus1 - 1;
+                        let m_str = '';
+                        let remaining = m_value;
+                        for (let i = 0; i < m_length; i++) {
+                            remaining *= 2;
+                            const bit = Math.floor(remaining);
+                            m_str += bit.toString();
+                            remaining -= bit;
+                        }
+                        if (m_str.length === m_length) {
+                            return s + code + m_str;
+                        }
+                    }
+                    continue;
+                }
+                
                 const possible_e_values = [];
                 const min_e_mag = e_length > 0 ? 2 ** (e_length - 1) : 0;
                 const max_e_mag = e_length > 0 ? (2 ** e_length) - 1 : 0;
-    
-                if (min_e_mag === 0) {
-                    continue;
-                }
     
                 for (let mag = min_e_mag; mag <= max_e_mag; mag++) {
                     possible_e_values.push(mag, -mag);
