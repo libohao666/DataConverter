@@ -34,6 +34,269 @@
             background-color: #45a049;
         }
 
+        .navbar a.active {
+            background-color: #45a049;
+            font-weight: bold;
+        }
+
+        .regviewer-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .regviewer-section h2 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        .rv-panel {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .rv-panel h3 {
+            margin-top: 0;
+            color: #4CAF50;
+            font-size: 16px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .rv-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .rv-btn-group {
+            display: inline-flex;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .rv-btn-group button {
+            background-color: white;
+            border: none;
+            padding: 6px 14px;
+            cursor: pointer;
+            font-size: 13px;
+            color: #333;
+            border-right: 1px solid #ddd;
+        }
+
+        .rv-btn-group button:last-child { border-right: none; }
+        .rv-btn-group button:hover { background-color: #e8f5e9; }
+        .rv-btn-group button.active { background-color: #4CAF50; color: white; }
+
+        .rv-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .rv-btn:hover { background-color: #45a049; }
+        .rv-btn-sm { padding: 4px 10px; font-size: 12px; }
+        .rv-btn-danger { background-color: #e74c3c; }
+        .rv-btn-danger:hover { background-color: #c0392b; }
+
+        .rv-bits-container {
+            overflow-x: auto;
+            margin: 10px 0;
+            padding: 10px 0;
+        }
+
+        .rv-bits-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 2px;
+            min-width: max-content;
+        }
+
+        .rv-bit {
+            width: 22px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 14px;
+            font-weight: bold;
+            user-select: none;
+            transition: transform 0.1s;
+        }
+        .rv-bit:hover { transform: scale(1.15); }
+        .rv-bit-on { background-color: #4CAF50; color: white; }
+        .rv-bit-off { background-color: #e0e0e0; color: #999; }
+
+        .rv-bits-labels {
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+            margin-bottom: 4px;
+            min-width: max-content;
+        }
+        .rv-bit-label {
+            width: 22px;
+            text-align: center;
+            font-size: 10px;
+            color: #aaa;
+            font-family: monospace;
+        }
+        .rv-bit-label-major { color: #333; font-weight: bold; }
+
+        .rv-format-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .rv-format-table td {
+            padding: 6px 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .rv-format-table td:first-child {
+            width: 140px;
+            font-weight: bold;
+            color: #555;
+            font-size: 13px;
+        }
+        .rv-format-table input {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            box-sizing: border-box;
+        }
+        .rv-format-table input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        .rv-range-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .rv-range-input {
+            width: 120px;
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        #rv-range-error {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .rv-shift-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .rv-shift-input {
+            width: 60px;
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .rv-calc-input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .rv-calc-input:focus { border-color: #4CAF50; outline: none; }
+
+        #rv-calc-result {
+            margin-top: 8px;
+            padding: 8px 10px;
+            background-color: #f0f7f0;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #333;
+            word-break: break-all;
+        }
+        #rv-calc-error {
+            margin-top: 8px;
+            padding: 8px 10px;
+            background-color: #fdf0f0;
+            border: 1px solid #e74c3c;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #e74c3c;
+            display: none;
+        }
+
+        .rv-var-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+        .rv-var-table th, .rv-var-table td {
+            border: 1px solid #ddd;
+            padding: 5px 8px;
+            text-align: left;
+        }
+        .rv-var-table th { background-color: #f2f2f2; }
+        .rv-no-vars { color: #999; font-style: italic; font-size: 13px; }
+
+        .rv-info-bar {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+        .rv-info-bar span { font-weight: bold; color: #333; }
+
+        .rv-help {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+        .rv-help code {
+            background-color: #e8e8e8;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-family: monospace;
+        }
+
+        .rv-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        @media (max-width: 768px) {
+            .rv-grid-2 { grid-template-columns: 1fr; }
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -264,6 +527,7 @@
     <div class="navbar">
         <a href="https://github.com/libohao666/DataConverter">Project</a>
         <a href="#" id="nav-base" class="active">Data Converter</a>
+        <a href="#" id="nav-regviewer">RegViewer</a>
     </div>
 
     <div id="base-converter" class="container">
@@ -276,6 +540,107 @@
         <!-- Cards will be dynamically generated by JavaScript -->
     </div>
 
+    <div id="regviewer-section" class="regviewer-section">
+        <h2>RegViewer <span style="font-size:14px; color:#888; font-weight:normal;">(Web Edition)</span></h2>
+
+        <div class="rv-toolbar">
+            <div>
+                <label style="font-size:13px; color:#555; margin-right:8px;">Bit Width:</label>
+                <div class="rv-btn-group">
+                    <button id="rv-width-8" onclick="rvSetWidth(8)">8</button>
+                    <button id="rv-width-16" onclick="rvSetWidth(16)">16</button>
+                    <button id="rv-width-32" onclick="rvSetWidth(32)">32</button>
+                    <button id="rv-width-64" class="active" onclick="rvSetWidth(64)">64</button>
+                </div>
+            </div>
+            <div>
+                <label style="font-size:13px; color:#555; margin-right:8px;">Shift Mode:</label>
+                <div class="rv-btn-group">
+                    <button id="rv-shift-logical" class="active" onclick="rvSetShiftMode('logical')">Logical</button>
+                    <button id="rv-shift-arithmetic" onclick="rvSetShiftMode('arithmetic')">Arithmetic</button>
+                    <button id="rv-shift-rotate" onclick="rvSetShiftMode('rotate')">Rotate</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="rv-panel">
+            <h3>Bit Display <span style="float:right; font-size:12px; color:#888;">Click bits to toggle &mdash; Set bits: <span id="rv-bitcount">0</span></span></h3>
+            <div class="rv-bits-container">
+                <div id="rv-bits"></div>
+            </div>
+            <div style="display:flex; gap:8px; margin-top:10px;">
+                <button class="rv-btn rv-btn-sm" onclick="rvBulk('setAll')">Set All</button>
+                <button class="rv-btn rv-btn-sm" onclick="rvBulk('clearAll')">Clear All</button>
+                <button class="rv-btn rv-btn-sm" onclick="rvBulk('invertAll')">Invert All</button>
+            </div>
+        </div>
+
+        <div class="rv-grid-2">
+            <div class="rv-panel">
+                <h3>Data Formats <span style="font-size:12px; color:#888;">(edit any field to update)</span></h3>
+                <table class="rv-format-table">
+                    <tr><td>Binary (2)</td><td><input type="text" id="rv-bin" oninput="rvInputFormat('bin')" placeholder="e.g. 1010..."></td></tr>
+                    <tr><td>Octal (8)</td><td><input type="text" id="rv-oct" oninput="rvInputFormat('oct')" placeholder="e.g. 777"></td></tr>
+                    <tr><td>Decimal (10)</td><td><input type="text" id="rv-dec" oninput="rvInputFormat('dec')" placeholder="unsigned"></td></tr>
+                    <tr><td>Decimal Signed</td><td><input type="text" id="rv-decs" oninput="rvInputFormat('decs')" placeholder="signed"></td></tr>
+                    <tr><td>Hex (16)</td><td><input type="text" id="rv-hex" oninput="rvInputFormat('hex')" placeholder="e.g. 0xFF"></td></tr>
+                    <tr><td>Size</td><td><input type="text" id="rv-size" oninput="rvInputFormat('size')" placeholder="e.g. 4K 512B"></td></tr>
+                </table>
+                <div class="rv-help">Size format: <code>1E 2P 3T 4G 5M 6K 7B</code> (1E = 1 Exabyte = 2^60 bytes)</div>
+            </div>
+
+            <div class="rv-panel">
+                <h3>Bit Range Operations</h3>
+                <div class="rv-range-row">
+                    <input type="text" id="rv-range" class="rv-range-input" placeholder="e.g. 8-15 or 3">
+                    <button class="rv-btn rv-btn-sm" onclick="rvBitRangeOp('set')">Set</button>
+                    <button class="rv-btn rv-btn-sm" onclick="rvBitRangeOp('clear')">Clear</button>
+                    <button class="rv-btn rv-btn-sm" onclick="rvBitRangeOp('invert')">Invert</button>
+                    <button class="rv-btn rv-btn-sm" onclick="rvBitRangeOp('extract')">Extract</button>
+                </div>
+                <div id="rv-range-error"></div>
+                <div class="rv-help">Range is order-independent: <code>8-15</code> = <code>15-8</code>. Extract: x = x[end:start]</div>
+
+                <h3 style="margin-top:20px;">Shift</h3>
+                <div class="rv-shift-row">
+                    <input type="number" id="rv-shift-amount" class="rv-shift-input" value="1" min="0">
+                    <button class="rv-btn rv-btn-sm" onclick="rvShift('left')">&lt;&lt; Left</button>
+                    <button class="rv-btn rv-btn-sm" onclick="rvShift('right')">&gt;&gt; Right</button>
+                </div>
+                <div class="rv-help">Mode: <code id="rv-shift-mode-label">Logical</code> &mdash; switch via toolbar above</div>
+            </div>
+        </div>
+
+        <div class="rv-panel">
+            <h3>Expression Calculator</h3>
+            <input type="text" id="rv-calc-input" class="rv-calc-input" placeholder="e.g. 0xFF + 0x10, or x = 1 << 8, or pc + offset" onkeydown="rvCalcKey(event)">
+            <div style="margin-top:8px;">
+                <button class="rv-btn rv-btn-sm" onclick="rvCalc()">= Evaluate</button>
+            </div>
+            <div id="rv-calc-result"></div>
+            <div id="rv-calc-error"></div>
+            <div class="rv-help" style="margin-top:10px;">
+                Operators: <code>+ - * / % **</code> <code>&lt;&lt; &gt;&gt;</code> <code>&amp; | ^ ~</code> <code>&lt; &gt; &lt;= &gt;= == != &amp;&amp; || !</code><br>
+                <code>x</code> = current value. Assignment: <code>var=expr</code>. Numbers: <code>0x</code> hex, <code>0b</code> bin, <code>0o</code> oct, decimal.
+            </div>
+            <div id="rv-vars" style="margin-top:15px;"></div>
+        </div>
+
+        <div class="rv-panel">
+            <h3>About RegViewer</h3>
+            <p style="font-size:13px; color:#666; line-height:1.6;">
+                This is a web-based reimplementation of the
+                <a href="https://gitee.com/thelxz/regviewer_v2.git" target="_blank">RegViewer</a> desktop tool (Qt/C++).
+                The original Qt source is included in the <code>regviewer/</code> directory for reference and desktop compilation.
+            </p>
+            <p style="font-size:13px; color:#666; line-height:1.6;">
+                <strong>Bug fixes vs. original:</strong><br>
+                &bull; Bit range input is now validated (original had no validation)<br>
+                &bull; Calculator works correctly in all bit width modes (original failed in non-64bit mode, e.g. <code>-1&lt;&lt;2*(2-3)</code>)
+            </p>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; Unauthorized reproduction or use of any code is prohibited.</p>
     </footer>
@@ -283,22 +648,24 @@
     <script src="script/data.js"></script>
     <script src="script/float.js"></script>
     <script src="script/index.js"></script>
+    <script src="script/regviewer.js"></script>
     <script>
         // Navigation switch functionality
         document.getElementById('nav-base').addEventListener('click', function(e) {
             e.preventDefault();
             document.getElementById('base-converter').style.display = 'block';
-            document.getElementById('file-converter').style.display = 'none';
+            document.getElementById('regviewer-section').style.display = 'none';
             document.getElementById('nav-base').classList.add('active');
-            document.getElementById('nav-file').classList.remove('active');
+            document.getElementById('nav-regviewer').classList.remove('active');
         });
 
-        document.getElementById('nav-file').addEventListener('click', function(e) {
+        document.getElementById('nav-regviewer').addEventListener('click', function(e) {
             e.preventDefault();
             document.getElementById('base-converter').style.display = 'none';
-            document.getElementById('file-converter').style.display = 'block';
-            document.getElementById('nav-file').classList.add('active');
+            document.getElementById('regviewer-section').style.display = 'block';
+            document.getElementById('nav-regviewer').classList.add('active');
             document.getElementById('nav-base').classList.remove('active');
+            initRegViewer();
         });
     </script>
 
